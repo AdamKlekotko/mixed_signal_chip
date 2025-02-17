@@ -8,7 +8,7 @@
 
 # Change the settings below to match your design:
 # ------------------------------------------------
-set TOP_LEVEL_CELL     tt_um_analog_analog_tes_chip
+set TOP_LEVEL_CELL     tt_um_analog_analog_test_chip
 set TEMPLATE_FILE      tt_analog_1x2.def
 set POWER_STRIPE_WIDTH 2um                 ;# The minimum width is 1.2um
 
@@ -23,6 +23,7 @@ set POWER_STRIPES {
 # Read in the pin positions
 # -------------------------
 def read $TEMPLATE_FILE
+#puts $TOP_LEVEL_CELL
 cellname rename tt_um_template $TOP_LEVEL_CELL
 
 # Draw the power stripes
@@ -49,6 +50,6 @@ foreach {name x} $POWER_STRIPES {
 # ----------------------------------
 save ${TOP_LEVEL_CELL}.mag
 file mkdir gds
-gds write gds/${TOP_LEVEL_CELL}.gds
+gds write ../gds/${TOP_LEVEL_CELL}.gds
 file mkdir lef
-lef write lef/${TOP_LEVEL_CELL}.lef -hide -pinonly
+lef write ../lef/${TOP_LEVEL_CELL}.lef -hide -pinonly
