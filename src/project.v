@@ -1,3 +1,4 @@
+`timescale 1 ns / 100 ps
 /*
  * Copyright (c) 2024 Your Name
  * SPDX-License-Identifier: Apache-2.0
@@ -19,5 +20,8 @@ module tt_um_analog_analog_test_chip (
     input  wire       clk,      // clock
     input  wire       rst_n     // reset_n - low to reset
 );
+wire clk_by_2;
+
+clock_divider clk_div1 (.clk(clk),.reset(~rst_n),.clk_out(clk_by_2));
 
 endmodule
