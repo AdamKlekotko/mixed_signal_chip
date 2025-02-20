@@ -21,7 +21,11 @@ module tt_um_analog_analog_test_chip (
     input  wire       rst_n     // reset_n - low to reset
 );
 wire clk_by_2;
+wire clk_by_32;
+wire [31:0] prbs_data;
 
-clock_divider clk_div1 (.clk(clk),.reset(~rst_n),.clk_out(clk_by_2));
+clock_divider clk_div (.clk(clk),.reset(~rst_n),.clk_div2(clk_by_2),.clk_div32(clk_by_32));
+prbs7_generator_32bit prbs_gen (.clk_div32(clk_by_32),.reset(~rst_n),.prbs7_out(prbs_data));
+serializer_32to1_sr sr_ser (.clk(clk),.reset(~rst_n),.load(clk_by_32),.data_in(prbs_data),.data_out(uo_out[0]));
 
 endmodule

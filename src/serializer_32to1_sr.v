@@ -3,7 +3,7 @@ module serializer_32to1_sr (
     input wire reset,              // Asynchronous reset
     input wire load,               // Load signal to load parallel data
     input wire [31:0] data_in,     // 32-bit parallel input data
-    output reg data_out,           // Serial output data
+    output reg data_out          // Serial output data
 );
 
     reg [31:0] shift_reg;          // Shift register to hold the data
