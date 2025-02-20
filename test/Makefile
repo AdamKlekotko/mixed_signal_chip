@@ -5,7 +5,7 @@
 SIM ?= icarus
 TOPLEVEL_LANG ?= verilog
 SRC_DIR = $(PWD)/../src
-PROJECT_SOURCES = project.v clock_divider.v
+PROJECT_SOURCES = project.v clock_divider.v prbs_generator.v serializer_32to1_sr.v 
 
 ifneq ($(GATES),yes)
 
